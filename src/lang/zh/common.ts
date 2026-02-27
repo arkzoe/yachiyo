@@ -1,0 +1,20 @@
+export default {
+  "menuheader": "八千代的小屋",
+  "linkinfo":{
+    "line1": "本站链接自由。",
+    "line2": "也大欢迎交换链接☆",
+    "line3": "Banner 请保存后使用",
+    "line4": "※严禁盗链※",
+  } ,
+  "top":"TOP / 首页",
+  "profile":"自我介绍",
+  "profileappend":" ― 100问100答",
+  "gallery":"画廊",
+  "bbs":"绘图版 / BBS",
+  "etcha":"绘茶",
+  "etcharules":"※利用规约 ←必读",
+  "music":"音乐室",
+  "game":"游戏角",
+  "gameappend":"施工中",
+  "links":"友情合集",
+}as const

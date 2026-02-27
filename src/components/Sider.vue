@@ -1,60 +1,69 @@
 <template>
   <aside class="sidebar">
     <div class="menu-header">
-      八千代的小屋<br />
+      {{ t('common.menuheader') }}<br />
       - MENU -
     </div>
+
     <ul class="menu-list">
-    <!-- 循环渲染所有菜单项，使用唯一id作为key -->
-    <li v-for="(menu, index) in menuList" :key="index">
-      <span class="menu-icon">◆</span>
-      <!-- 动态渲染路由链接 -->
-      <router-link
-        :to="menu.path"
-        :style="menu.linkStyle"
-      >
-        {{ menu.label }}
-      </router-link>
-      <!-- 渲染链接后的附加文本 -->
-      <span v-if="menu.appendText">{{ menu.appendText }}</span>
-      <!-- 渲染New标签 -->
-      <span class="new-tag" v-if="menu.showNewTag">New</span>
-      <!-- 渲染额外的链接（如利用规约） -->
-      <a
-        v-if="menu.extraLink"
-        :href="menu.extraLink.href"
-        :style="menu.extraLink.style"
-      >
-        {{ menu.extraLink.text }}
-      </a>
-    </li>
-  </ul>
+      <li v-for="(menu, index) in menuList" :key="index">
+        <span class="menu-icon">◆</span>
+        <router-link :to="menu.path" :style="menu.linkStyle">
+          {{ menu.label }}
+        </router-link>
+        <span v-if="menu.appendText">{{ menu.appendText }}</span>
+        <span class="new-tag" v-if="menu.showNewTag">New</span>
+        <a v-if="menu.extraLink" :href="menu.extraLink.href" :style="menu.extraLink.style">
+          {{ menu.extraLink.text }}
+        </a>
+      </li>
+    </ul>
 
     <div class="link-info">
-      本站链接自由。<br />
-      也大欢迎交换链接☆<br />
-      Banner 请保存后使用<br />
-      <strong>※严禁盗链※</strong>
+      {{ t('common.linkinfo.line1') }}<br />
+      {{ t('common.linkinfo.line2') }}<br />
+      {{ t('common.linkinfo.line3') }}<br />
+      <strong>{{ t('common.linkinfo.line4') }}</strong>
     </div>
 
     <div class="banner-area">
       <router-link to="/">
-        <img
-          src="/images/banner_jp.gif"
-          alt="八千代的小屋 Banner"
-          class="banner-img"
-        />
+        <img src="/images/banner_jp.gif" alt="八千代的小屋 Banner" class="banner-img" />
       </router-link>
+    </div>
+
+    <div class="lang">
+      lang:
+      <a
+        href="#"
+        :class="{ active: locale === 'zh' }"
+        @click.prevent="locale = 'zh'"
+      >
+        中文
+      </a>
+      <a
+        href="#"
+        :class="{ active: locale === 'ja' }"
+        @click.prevent="locale = 'ja'"
+      >
+        日本語
+      </a>
     </div>
   </aside>
 </template>
+
 <script setup lang="ts">
-import { RouterLink } from 'vue-router';
-import { ref } from 'vue';
-const menuList = ref([
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+// 在 setup 中调用 useI18n 获取 t 函数
+const { t ,locale} = useI18n()
+
+// 菜单列表改为计算属性，确保翻译响应式
+const menuList = computed(() => [
   {
     path: '/',
-    label: 'TOP / 首页',
+    label: t('common.top'),
     appendText: '',
     showNewTag: false,
     linkStyle: {},
@@ -62,23 +71,23 @@ const menuList = ref([
   },
   {
     path: '/profile',
-    label: '自我介绍',
-    appendText: ' ― 100问100答',
+    label: t('common.profile'),
+    appendText: t('common.profileappend'),
     showNewTag: false,
     linkStyle: {},
     extraLink: null
   },
   {
     path: '/gallery',
-    label: '画廊',
+    label: t('common.gallery'),
     appendText: '',
-    showNewTag: true, // 显示New标签
+    showNewTag: true,
     linkStyle: {},
     extraLink: null
   },
   {
     path: '/bbs',
-    label: '绘图板 / BBS',
+    label: t('common.bbs'),
     appendText: '',
     showNewTag: false,
     linkStyle: {},
@@ -86,36 +95,35 @@ const menuList = ref([
   },
   {
     path: '/etcha',
-    label: '绘茶',
+    label: t('common.etcha'),
     appendText: '',
     showNewTag: false,
     linkStyle: {},
-    extraLink: { // 附加的利用规约链接
+    extraLink: {
       href: '/etcha-rules',
       style: { fontSize: '13px', color: '#666' },
-      text: '※利用规约 ←必读'
+      text: t('common.etcharules')
     }
   },
   {
     path: '/music',
-    label: '音乐室',
+    label: t('common.music'),
     appendText: '',
-    showNewTag: true, // 显示New标签
+    showNewTag: true,
     linkStyle: {},
     extraLink: null
   },
   {
     path: '/game',
-    label: '游戏角',
-    appendText: '施工中',
+    label: t('common.game'),
+    appendText: t('common.gameappend'),
     showNewTag: false,
-    // 游戏角链接的样式（失效、删除线）
     linkStyle: { color: '#000', cursor: 'default', textDecoration: 'line-through' },
     extraLink: null
   },
   {
     path: '/links',
-    label: '友链合集',
+    label: t('common.links'),
     appendText: '',
     showNewTag: false,
     linkStyle: {},
@@ -124,6 +132,10 @@ const menuList = ref([
 ])
 </script>
 <style scoped>
+.lang { margin: 10px 0; }
+.lang a {
+  margin-left: 10px;
+}
 .banner-area {
   margin-top: 10px;
   text-align: center;
