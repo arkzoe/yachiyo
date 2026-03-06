@@ -18,4 +18,3 @@ export default {
   "gameappend": "工事中",
   "links": "友情リンク集",
 }as const
-

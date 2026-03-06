@@ -37,7 +37,7 @@ const loadingStore = useLoadingStore()
   text-shadow: 1px 1px 0 #fff; /* 白色描边，仿老式像素文字 */
   letter-spacing: 2px; /* 字间距拉大，复古感 */
   /* 可选：加一点点闪烁动画，仿老式CRT屏幕 */
-  animation: flicker 1.5s infinite alternate;
+  animation: flicker 2s infinite alternate;
 }
 
 /* 复古闪烁动画（可选，模拟老式屏幕频闪） */

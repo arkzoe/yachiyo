@@ -12,7 +12,7 @@
         ◆ お絵描きBBS ◆
       </h1>
       <p>仮想空間「ツクヨミ」へようこそ！自由にお描きください♪</p>
-      <a href="#" class="bbs-new-post-btn">[ 新規投稿 (New Post) ]</a>
+      <RouterLink to="/oekaki" class="bbs-new-post-btn">[ 新規投稿 (New Post) ]</RouterLink>
     </div>
 
     <div class="bbs-thread" v-for="post in posts" :key="post.id">

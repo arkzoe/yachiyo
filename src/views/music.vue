@@ -10,12 +10,12 @@
         display: inline-block;
       "
     >
-      ◆ 音乐放置处 (Music Room) ◆
+      ◆ {{ t('music.title') }} ◆
     </div>
     <p
       style="font-weight: bold; color: #333; font-size: 16px; margin-top: 15px"
     >
-      ★ 收录电影《超时空辉夜姬》内八千代最喜欢的曲目 ★
+      ★ {{ t('music.description') }} ★
     </p>
   </div>
 
@@ -79,7 +79,8 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
 // ========== 响应式数据 ==========
 // 音频元素引用
 const audioRef = ref<HTMLAudioElement | null>(null);

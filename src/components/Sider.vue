@@ -131,6 +131,7 @@ const menuList = computed(() => [
   }
 ])
 </script>
+
 <style scoped>
 .lang { margin: 10px 0; }
 .lang a {

@@ -1,8 +1,8 @@
 <template>
   <div class="etcha-page">
       <div class="bbs-header" style="text-align: center; margin-bottom: 20px;">
-        <h1 style="font-size: 24px; color: #333; border-bottom: 2px dashed #79ACC5; padding-bottom: 10px;"> ◆ 茶绘 ◆ </h1>
-        <p><img src="/images/tsuku_ball.gif"/>这是一个可以实时绘图和交流的空间。<img src="/images/tsuku_ball.gif"/></p>
+        <h1 style="font-size: 24px; color: #333; border-bottom: 2px dashed #79ACC5; padding-bottom: 10px;"> ◆ {{ t('etcha.title') }} ◆ </h1>
+        <p><img src="/images/tsuku_ball.gif"/>{{ t('etcha.description') }}<img src="/images/tsuku_ball.gif"/></p>
       </div>
 
       <div class="etcha-container">
@@ -62,6 +62,8 @@
 <script setup>
 import { ref, onMounted, nextTick } from 'vue';
 import OekaPainter from '@/components/OekaPainter.vue';
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
 // 响应式数据
 const userName = ref('');
 const userMessage = ref('');
