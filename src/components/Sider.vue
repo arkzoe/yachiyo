@@ -39,14 +39,14 @@
         :class="{ active: locale === 'zh' }"
         @click.prevent="locale = 'zh'"
       >
-        中文
+        ZH
       </a>
       <a
         href="#"
         :class="{ active: locale === 'ja' }"
         @click.prevent="locale = 'ja'"
       >
-        日本語
+        JA
       </a>
     </div>
   </aside>
