@@ -1,18 +1,11 @@
 <template>
   <div class="bbs-container">
     <div class="bbs-header">
-      <h1
-        style="
-          font-size: 24px;
-          color: #333;
-          border-bottom: 2px dashed #79acc5;
-          padding-bottom: 10px;
-        "
-      >
-        ◆ お絵描きBBS ◆
+      <h1 style="font-size: 24px; color: #333; border-bottom: 2px dashed #79acc5; padding-bottom: 10px;">
+        {{ t('bbs.title') }}
       </h1>
-      <p>仮想空間「ツクヨミ」へようこそ！自由にお描きください♪</p>
-      <RouterLink to="/oekaki" class="bbs-new-post-btn">[ 新規投稿 (New Post) ]</RouterLink>
+      <p>{{ t('bbs.welcome') }}</p>
+      <RouterLink to="/oekaki" class="bbs-new-post-btn">{{ t('bbs.newPost') }}</RouterLink>
     </div>
 
     <div class="bbs-thread" v-for="post in posts" :key="post.id">
@@ -30,6 +23,8 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
 const posts = ref([
   {
     id: 1,

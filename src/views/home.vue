@@ -1,22 +1,19 @@
 <template>
   <div class="header-section">
-    <div class="header-top-row">
+  <div class="header-top-row">
       <img src="/images/logo_left.gif" alt="Logo" class="logo-side" />
-      <img src="/images/title_text.png" alt="八千代的小屋" class="title-img" />
+      <img src="/images/title_text.png" :alt="t('titleImage')" class="title-img" />
       <img src="/images/logo_right.gif" alt="Logo" class="logo-side" />
     </div>
 
-    <div class="welcome-msg">
-      ★★★ 欢迎光临！本站由站长 ☽八千代☾ 运营，是一个以二次创作为主的插画交流网站
-      ★★★
-    </div>
+  <div class="welcome-msg">{{ t('home.welcome') }}</div>
   </div>
 
   <div class="warning-bar">
     <marquee direction="right">
       <span class="star-orange">★</span><span class="star-green">★</span
       ><span class="star-purple">★</span>
-      &nbsp; 未经许可严禁擅自转载或使用本站内容 &nbsp;
+      &nbsp; {{ t('home.warning') }} &nbsp;
       <span class="star-purple">★</span><span class="star-green">★</span
       ><span class="star-orange">★</span>
     </marquee>
@@ -26,31 +23,29 @@
     <Counter />
     <div style="font-size: 14px; margin-top: 5px">
       <span class="tooltip-container">
-        踩中整百号（纪念番号）
+        {{ t('home.counterReport') }}
         <div class="tooltip-content">
-          <strong>[ 什么是踩号报告？ ]</strong><br />
-          当计数器达到 600、700 等整百数字时，<br />
-          请向站长报告，可以获得点图奖励哦！
+          <strong>{{ t('home.counterReportTitle') }}</strong><br />
+          {{ t('home.counterReportDesc') }}
         </div>
       </span>
-      请通过
+      {{ t('home.contactVia') }}
       <span class="tooltip-container">
-        <router-link to="/webclap">Web拍手</router-link>
+        <router-link to="/webclap">{{ t('home.webClap') }}</router-link>
         <div class="tooltip-content">
-          <strong>[ Web拍手 ]</strong><br />
-          不需要写长篇大论，点一下就能传达支持！<br />
-          匿名留言也大欢迎☆
+          <strong>[ {{ t('home.webClap') }} ]</strong><br />
+          {{ t('home.webClapTooltip') }}
         </div>
       </span>
-      或 <router-link to="/bbs">BBS</router-link> 联系我
+      {{ t('home.or') }} <router-link to="/bbs">{{ t('common.bbs') }}</router-link> {{ t('home.contactMe') }}
     </div>
   </div>
 
   <div class="center-area">
     <div class="illust-container">
-      <img src="/images/main_illust.jpg" alt="本月插画" class="main-illust" />
+      <img src="/images/main_illust.jpg" :alt="t('home.illustLabel')" class="main-illust" />
       <div style="font-size: 13px; text-align: center; margin-top: 5px">
-        本月插画/作者：ほげほげ 老师
+        {{ t('home.illustLabel') }}/作者：ほげほげ 老师
       </div>
     </div>
 
@@ -66,19 +61,19 @@
 
       <div class="web-clap-area">
         <router-link to="/webclap">
-          <span class="web-clap-btn">Web 拍手</span>
+          <span class="web-clap-btn">{{ t('home.webClapBtn') }}</span>
         </router-link>
-        <div class="clap-sub-text">★ 欢迎留下应援留言或感想 ★</div>
+        <div class="clap-sub-text">{{ t('home.clapSubText') }}</div>
         <div class="clap-highlight-text">
-          ★ <span style="color: rgb(182, 0, 254)">联合茶绘</span>举办日程请点击
-          <router-link to="/etcha-schedule" class="clap-link">这里</router-link> ★
+          ★ <span style="color: rgb(182, 0, 254)">{{ t('common.etcha') }}</span>{{ t('home.clapHighlight') }}
+          <router-link to="/etcha-schedule" class="clap-link">{{ t('home.here') }}</router-link> ★
         </div>
       </div>
     </div>
   </div>
   <!-- 公告区域 -->
   <div class="notice-box">
-    <div class="notice-title">◆ <b>公告事项</b> ◆</div>
+        <div class="notice-title">{{ t('home.noticeTitle') }}</div>
     <div class="notice-content" v-html="noticeContent"></div>
   </div>
 
@@ -86,8 +81,8 @@
   <table class="info-table">
     <thead>
       <tr>
-        <th style="width: 25%; text-align: center">页面</th>
-        <th>说明</th>
+        <th style="width: 25%; text-align: center">{{ t('home.pageHeader') }}</th>
+        <th>{{ t('home.pageDescHeader') }}</th>
       </tr>
     </thead>
     <tbody>
@@ -102,7 +97,7 @@
 
   <!-- 同盟链接区域 -->
   <div class="alliance-section">
-    <div class="alliance-title"><strong>★参加同盟一览★</strong></div>
+    <div class="alliance-title"><strong>{{ t('home.allianceTitle') }}</strong></div>
     <div class="alliance-links">
       <router-link
         :to="alliance.path"
@@ -118,6 +113,8 @@
 </template>
 
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
 import { ref } from "vue";
 // @ts-ignore
 import Counter from "@/components/Counter.vue";

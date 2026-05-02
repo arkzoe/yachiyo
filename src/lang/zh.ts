@@ -19,7 +19,56 @@ export default {
     "gameappend": "施工中",
     "links": "友情合集",
   },
-  home: {},
+  bannerAlt: "八千代的小屋 Banner",
+  loading: "加载中...",
+  titleImage: "八千代的小屋",
+  bbs: {
+    "title": "◆ 绘画 BBS ◆",
+    "welcome": "欢迎来到虚拟空间「ツクヨミ」！请自由绘画。",
+    "newPost": "[ 新建帖子 (New Post) ]"
+  },
+  home: {
+    "welcome": "欢迎来到八千代的小屋！这里是一个以二次创作为主的插画交流站，欢迎探索与互动。",
+    "webClap": "Web拍手",
+    "webClapTooltip": "不需要写长篇大论，点一下就能传达支持！匿名留言也大欢迎☆",
+    "warning": "未经许可严禁擅自转载或使用本站内容",
+    "counterReport": "踩中整百号（纪念番号）",
+    "counterReportTitle": "[ 什么是踩号报告？ ]",
+    "counterReportDesc": "当计数器达到 600、700 等整百数字时，请向站长报告，可以获得点图奖励哦！",
+    "contactVia": "请通过",
+    "or": "或",
+    "contactMe": "联系我",
+    "illustLabel": "本月插画",
+    "webClapBtn": "Web 拍手",
+    "clapSubText": "★ 欢迎留下应援留言或感想 ★",
+    "clapHighlight": "联合茶绘举办日程请点击",
+    "here": "这里",
+    "noticeTitle": "◆ 公告事项 ◆",
+    "pageHeader": "页面",
+    "pageDescHeader": "说明",
+    "allianceTitle": "★参加同盟一览★"
+  },
+  links: {
+    "title": "友链",
+    "welcome": "欢迎来到友链页面"
+  },
+  toolbar: {
+    "clearAll": "清除全部"
+  },
+  tool: {
+    "pen": "画笔",
+    "eraser": "橡皮",
+    "tone": "网点",
+    "fill": "填充",
+    "rect": "矩形",
+    "circle": "圆形",
+    "hand": "手"
+  },
+  confirm: {
+    "title": "确认窗口",
+    "yes": "是",
+    "no": "否"
+  },
   profile: {
     "title": "† 八千代的 100 问 100 答 †",
     "qa1": {
@@ -80,8 +129,40 @@ export default {
     "title": "茶绘",
     "description": "这是一个可以实时绘图和交流的空间。",
   },
+  gallery: {
+    "title": "◆ Gallery / 画廊 ◆",
+    "description": "★ 这里的画作都是收到的礼物或心血之作，请勿随意带走哦 ★",
+    "artistPrefix": "绘者：",
+    "more": "更多精彩作品正在收集整理中……"
+  },
+  game: {
+    "title": "游戏角 · 施工中",
+    "message": "非常抱歉！页面正在全力准备中。请再稍等一下下！",
+    "adminTitle": "来自站长的消息 ☽"
+  },
   music: {
     "title": "音乐放置处 (Music Room) ",
     "description": "收录电影《超时空辉夜姬》内八千代最喜欢的曲目",
+  },
+  counter: {
+    "prefix": "您是第",
+    "suffix": "位访客！"
+  },
+  webclap: {
+    "title": "Web拍手 · 留下心意",
+    "simpleClapDesc": "表示\"我有认真在看网站\"之意<br />拍一下手！",
+    "sendClap": "♡ 发送拍手 ♡",
+    "totalClaps": "总拍手数：",
+    "messageFormDesc": "给站长留下应援留言♡",
+    "namePlaceholder": "名字（留空为匿名）",
+    "messagePlaceholder": "输入留言...",
+    "sendMessage": "发送留言",
+    "logTitle": "💌 大家留下的心意 💌",
+    "loading": "正在加载留言...",
+    "noMessages": "还没有留言",
+    "sendEmptyAlert": "请输入留言内容",
+    "dateError": "日期错误",
+    "dateUnknown": "日期不明",
+    "anonymousPrefix": "神明"
   },
 } as const

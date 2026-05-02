@@ -1,14 +1,16 @@
 <template>
   <Teleport to="body">
     <div class="loading-tip" v-show="loadingStore.isLoading">
-      <span class="loading-text">加载中...</span>
+      <span class="loading-text">{{ t('loading') }}</span>
     </div>
   </Teleport>
 </template>
 
 <script setup lang="ts">
 import { useLoadingStore } from '@/store/loading'
+import { useI18n } from 'vue-i18n'
 const loadingStore = useLoadingStore()
+const { t } = useI18n()
 </script>
 
 <style scoped>

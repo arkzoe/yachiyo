@@ -3,25 +3,25 @@
         <div class="bbs-header" style="text-align: center; margin-bottom: 20px;">
             <h1 style="font-size: 24px; color: #333; border-bottom: 2px dashed #79ACC5; padding-bottom: 10px; display: flex; align-items: center; justify-content: center;">
                 <img src="/images/old_under_construction_yachiyo.gif" alt="-" style="height:24px; vertical-align:middle; margin-right: 10px;">
-                游戏角 · 施工中
+                {{ t('game.title') }}
                 <img src="/images/old_under_construction_yachiyo.gif" alt="-" style="height:24px; vertical-align:middle; margin-left: 10px;">
             </h1>
-            <p style="font-size: 1.1em; color: #555;">非常抱歉！页面正在全力准备中。请再稍等一下下！</p>
+            <p style="font-size: 1.1em; color: #555;">{{ t('game.message') }}</p>
         </div>
 
         <div style="text-align: center; padding: 20px;">
 
-            <img src="/images/construction.gif" alt="施工中" style="max-width: 100%; height: auto; border: 2px dotted #ffb6c1; padding: 5px;">
+            <img src="/images/construction.gif" :alt="t('common.gameappend')" style="max-width: 100%; height: auto; border: 2px dotted #ffb6c1; padding: 5px;">
 
             <div class="admin-letter-container">
-                <div class="admin-letter-title">来自站长的消息 ☽</div>
+                <div class="admin-letter-title">{{ t('game.adminTitle') }}</div>
                 <p class="admin-letter-text">
                     这里原本打算放一些八千代制作的小游戏，<br>
                     或者是向大家推荐的游戏心得……<br>
                     但由于站长目前正沉迷于“虚拟空间”的调试，<br>
                     这里的进度落后了（> < ;）<br><br>
                     我会尽快完成的！<br>
-                    在那之前，请先去 <b>BBS</b> 或者 <b>绘茶室</b> 玩耍吧☆
+                    在那之前，请先去 <b>{{ t('common.bbs') }}</b> 或者 <b>{{ t('common.etcha') }}</b> 玩耍吧☆
                 </p>
             </div>
         </div>
@@ -29,7 +29,8 @@
 </template>
 
 <script setup lang="ts">
-
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
 </script>
 
 <style scoped>

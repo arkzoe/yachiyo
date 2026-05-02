@@ -1,44 +1,36 @@
 <template>
   <div class="counter-container">
-    您是第
+    {{ t('counter.prefix') }}
     <div class="counter-wrapper">
       <div class="digital-clock">
         <span class="digital-bg">888888</span>
         <span id="firestore-counter" class="digital-fg">{{ displayCounter }}</span>
       </div>
     </div>
-    位访客！
+    {{ t('counter.suffix') }}
   </div>
-</template>
+ </template>
 
-<script>
-export default {
-  data() {
-    return {
-      counter: 0,          // 原始数值（数字）
-      displayCounter: '000000' // 格式化为6位显示的字符串
-    };
-  },
-  watch: {
-    // 监听 counter 变化，自动格式化为6位，不足补零
-    counter(newVal) {
-      this.displayCounter = newVal.toString().padStart(6, '0');
-    }
-  },
-  mounted() {
-    this.initCounter();
-  },
-  methods: {
-    initCounter() {
-    // 读取本地存储的计数，默认为0
-    let count = localStorage.getItem('visitorCount');
-    count = count ? parseInt(count, 10) : 0;
-    count += 1;                     // 每次访问+1
-    localStorage.setItem('visitorCount', count);
-    this.counter = count;
-    }
-  }
-};
+<script setup>
+import { ref, watch, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+const counter = ref(0)
+const displayCounter = ref('000000')
+
+watch(counter, (newVal) => {
+  displayCounter.value = newVal.toString().padStart(6, '0')
+})
+
+onMounted(() => {
+  // 读取本地存储的计数，默认为0
+  let count = localStorage.getItem('visitorCount')
+  count = count ? parseInt(count, 10) : 0
+  count += 1
+  localStorage.setItem('visitorCount', count.toString())
+  counter.value = count
+})
 </script>
 
 <style scoped>

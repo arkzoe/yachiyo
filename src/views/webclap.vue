@@ -1,46 +1,46 @@
 <template>
   <div class="clap-container">
-    <div class="clap-title">👏 Web拍手・心を残す 👏</div>
+    <div class="clap-title">{{ t('webclap.title') }}</div>
     <div class="clap-actions">
       <div class="simple-clap-area">
-        <p>サイトをちゃんと見てますという意味で<br />拍手ひとつ！</p>
-        <button id="clap-button" @click="sendClap">♡ 拍手を送る ♡</button>
+        <p v-html="t('webclap.simpleClapDesc')"></p>
+        <button id="clap-button" @click="sendClap">{{ t('webclap.sendClap') }}</button>
         <p>
-          総拍手: <span id="clap-count">{{ clapCount }}</span>
+          {{ t('webclap.totalClaps') }} <span id="clap-count">{{ clapCount }}</span>
         </p>
       </div>
       <div class="message-form">
-        <p>管理人へ応援メッセージを残してね♡</p>
+        <p>{{ t('webclap.messageFormDesc') }}</p>
         <input
           type="text"
           id="message-name"
-          placeholder="名前（省略時は匿名）"
+          :placeholder="t('webclap.namePlaceholder')"
           v-model="messageName"
         />
         <textarea
           id="message-content"
-          placeholder="メッセージを入力..."
+          :placeholder="t('webclap.messagePlaceholder')"
           rows="3"
           v-model="messageContent"
         ></textarea>
         <button id="send-message-btn" @click="sendMessage">
-          メッセージを送る
+          {{ t('webclap.sendMessage') }}
         </button>
       </div>
     </div>
     <div class="clap-log-container">
-      <div class="clap-log-title">💌 残してくれた心 💌</div>
+      <div class="clap-log-title">{{ t('webclap.logTitle') }}</div>
       <div id="clap-log-list">
         <!-- 加载中状态 -->
         <p v-if="loading" style="color: #999; text-align: center">
-          メッセージを読み込み中...
+          {{ t('webclap.loading') }}
         </p>
         <!-- 无留言状态 -->
         <div
           v-else-if="messages.length === 0"
           style="color: #999; text-align: center"
         >
-          まだメッセージがありません
+          {{ t('webclap.noMessages') }}
         </div>
         <!-- 留言列表 -->
         <div v-for="msg in messages" :key="msg.id" class="clap-log-entry">
@@ -57,6 +57,8 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
 
 // 存储键名
 const STORAGE_KEY = "webclap-data";
@@ -81,7 +83,7 @@ const messageContent = ref("");
 const formatDate = (dateStr: string): string => {
   try {
     const date = new Date(dateStr);
-    if (isNaN(date.getTime())) return "日付不明";
+    if (isNaN(date.getTime())) return t('webclap.dateUnknown');
     const year = date.getFullYear();
     const month = (date.getMonth() + 1).toString().padStart(2, "0");
     const day = date.getDate().toString().padStart(2, "0");
@@ -89,7 +91,7 @@ const formatDate = (dateStr: string): string => {
     const minutes = date.getMinutes().toString().padStart(2, "0");
     return `${year}/${month}/${day} ${hours}:${minutes}`;
   } catch {
-    return "日付エラー";
+    return t('webclap.dateError');
   }
 };
 
@@ -149,13 +151,13 @@ const sendClap = (): void => {
 const sendMessage = (): void => {
   // 验证内容不能为空（忽略空白字符）
   if (!messageContent.value || messageContent.value.trim() === "") {
-    alert("メッセージを入力してください");
+    alert(t('webclap.sendEmptyAlert'));
     return;
   }
 
   // 处理名字（为空则用匿名）
   const name =
-    messageName.value?.trim() || "神明" + Math.floor(Math.random() * 1000); // 随机匿名名，避免重复
+    messageName.value?.trim() || t('webclap.anonymousPrefix') + Math.floor(Math.random() * 1000); // 随机匿名名，避免重复
 
   // 创建新留言
   const newMessage = {

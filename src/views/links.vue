@@ -2,18 +2,15 @@
   <div class="header-section">
     <div class="header-top-row">
       <img src="/images/logo_left.gif" alt="Logo1" class="logo-side" />
-      <img src="/images/title_text.png" alt="八千代的小屋" class="title-img" />
+      <img src="/images/title_text.png" :alt="t('titleImage')" class="title-img" />
       <img src="/images/logo_right.gif" alt="Logo2" class="logo-side" />
     </div>
 
-    <div class="welcome-msg">
-      ★★★ 欢迎光临！本站是由管理员 ☽八千代☾ 运营的以二次创作为中心的插画交流站
-      ★★★
-    </div>
+    <div class="welcome-msg">{{ t('links.welcome') }}</div>
   </div>
 
   <div class="content-container" style="padding: 20px">
-    <h1 style="padding-left: 10px">Links / 友链</h1>
+    <h1 style="padding-left: 10px">{{ t('common.links') }}</h1>
     <p class="section-description">
       这些都是八千代非常珍惜的宝藏链接。<br />
       要不要一起出发，去探索充满回忆与灵感的地方呢？☆
@@ -97,7 +94,10 @@
   </footer>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
+</script>
 
 <style scoped>
 .content-container {

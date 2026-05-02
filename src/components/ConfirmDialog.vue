@@ -1,17 +1,18 @@
 <template>
   <div class="yachiyo-confirm-overlay" @click.self="onCancel">
     <div class="yachiyo-confirm-box">
-      <p class="yachiyo-confirm-who">确认窗口</p>
+      <p class="yachiyo-confirm-who">{{ t('confirm.title') }}</p>
       <p class="yachiyo-confirm-text">{{ message }}</p>
       <div class="yachiyo-confirm-btns">
-        <button type="button" class="tool-btn yachiyo-confirm-yes" @click="onConfirm">是</button>
-        <button type="button" class="tool-btn yachiyo-confirm-no" @click="onCancel">否</button>
+        <button type="button" class="tool-btn yachiyo-confirm-yes" @click="onConfirm">{{ t('confirm.yes') }}</button>
+        <button type="button" class="tool-btn yachiyo-confirm-no" @click="onCancel">{{ t('confirm.no') }}</button>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
+import { useI18n } from 'vue-i18n'
 defineProps({
   message: {
     type: String,
@@ -19,6 +20,7 @@ defineProps({
   },
 });
 
+const { t } = useI18n()
 const emit = defineEmits(['confirm', 'cancel']);
 
 function onConfirm() {

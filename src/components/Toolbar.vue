@@ -14,17 +14,17 @@
         :class="{ active: coreState.tool === tool.id }"
         @click="setTool(tool.id)"
       >
-        {{ tool.label }}
+        {{ t('tool.' + tool.id) }}
       </button>
     </div>
     <!-- 清除按钮 -->
     <div class="tool-group">
-      <button class="tool-btn" @click="$emit('clear')">清除全部</button>
+      <button class="tool-btn" @click="$emit('clear')">{{ t('toolbar.clearAll') }}</button>
     </div>
     <!-- 抓手按钮 -->
     <div class="tool-group">
       <button class="tool-btn handle-btn" :class="{ active: handleMode }" @click="$emit('toggle-handle')">
-        (手)
+        {{ t('tool.hand') }}
       </button>
     </div>
   </div>
@@ -32,12 +32,15 @@
 
 <script setup>
 import { computed } from 'vue';
+import { useI18n } from 'vue-i18n'
 
 const props = defineProps({
   core: Object,
   coreState: Object,
   handleMode: Boolean,
 });
+
+const { t } = useI18n()
 
 const emit = defineEmits(['clear', 'toggle-handle']);
 

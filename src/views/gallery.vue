@@ -11,7 +11,7 @@
       ◆ Gallery / 画廊 ◆
     </h1>
     <p style="font-size: 13px; color: #555; margin-top: 10px">
-      ★ 这里的画作都是收到的礼物或心血之作，请勿随意带走哦 ★
+      {{ t('gallery.description') }}
     </p>
   </div>
   <div class="gallery-grid">
@@ -26,7 +26,7 @@
       </a>
       <p>
         <span class="artist">
-          绘者：<a :href="item.artistLink" class="artist-link">{{ item.artistName }}</a>
+          {{ t('gallery.artistPrefix') }}<a :href="item.artistLink" class="artist-link">{{ item.artistName }}</a>
         </span>
         <br />{{ item.date }}
       </p>
@@ -35,12 +35,14 @@
   <div
     style="text-align: center; margin-top: 40px; font-size: 13px; color: #888"
   >
-    <p>更多精彩作品正在收集整理中……</p>
+    <p>{{ t('gallery.more') }}</p>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
 
 // 定义响应式的画廊数据数组（组合式核心：数据和逻辑内聚）
 const galleryItems = ref([

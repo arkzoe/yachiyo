@@ -28,7 +28,7 @@
 
     <div class="banner-area">
       <router-link to="/">
-        <img src="/images/banner_jp.gif" alt="八千代的小屋 Banner" class="banner-img" />
+        <img src="/images/banner_jp.gif" :alt="t('bannerAlt')" class="banner-img" />
       </router-link>
     </div>
 
