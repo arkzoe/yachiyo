@@ -24,6 +24,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { useI18n } from 'vue-i18n'
+const baseUrl = import.meta.env.BASE_URL
 const { t } = useI18n()
 const posts = ref([
   {
@@ -31,7 +32,7 @@ const posts = ref([
     subject: "「三人でずっと一緒にいられたら…」",
     author: "TS_Lunatic",
     date: "2003/10/28 10:47",
-    imageSrc: "/bbs/kamigami_178_5.jpg",
+    imageSrc: `${baseUrl}bbs/kamigami_178_5.jpg`,
     comment:
       "やっと接続できました！初投稿です。<br />映画のあの温かいシーンをイメージして描きました。",
   },
@@ -40,7 +41,7 @@ const posts = ref([
     subject: "「いろはの手作りパンケーキ食べたい！」",
     author: "Pancake_Master",
     date: "2003/10/28 10:35",
-    imageSrc: "/bbs/kamigami_333_4.jpg",
+    imageSrc: `${baseUrl}bbs/kamigami_333_4.jpg`,
     comment:
       "いろはちゃんを可愛く描けた気がします！<br />パンケーキ同盟募集中（笑）",
   },
@@ -49,7 +50,7 @@ const posts = ref([
     subject: "「かぐや…？」",
     author: "kamigami_333",
     date: "2003/10/28 10:22",
-    imageSrc: "/bbs/kamigami_333_3.jpg",
+    imageSrc: `${baseUrl}bbs/kamigami_333_3.jpg`,
     comment:
       "かぐやはやっぱり最高！私だけ？ふふっ ☆",
   },
@@ -58,7 +59,7 @@ const posts = ref([
     subject: "「ふふ…」",
     author: "kamigami_333",
     date: "2003/10/28 10:07",
-    imageSrc: "/bbs/kamigami_333_2.jpg",
+    imageSrc: `${baseUrl}bbs/kamigami_333_2.jpg`,
     comment:
       "落書きだけど頑張って描いた！みんなどう見えるか気になる～ ヾ(＠⌒▽⌒＠)ﾉ",
   },
@@ -67,7 +68,7 @@ const posts = ref([
     subject: "「いろp～」",
     author: "kamigami_333",
     date: "2003/10/28 10:01",
-    imageSrc: "/bbs/kamigami_333_1.jpg",
+    imageSrc: `${baseUrl}bbs/kamigami_333_1.jpg`,
     comment:
       "いろp～見たくて描いた！また今度アップするね！(*´∀`*)",
   },
@@ -76,7 +77,7 @@ const posts = ref([
     subject: "「カミサマ方、お久しぶりです！」",
     author: "八千代",
     date: "2003/10/27 00:15",
-    imageSrc: "/bbs/oeka3.jpeg",
+    imageSrc: `${baseUrl}bbs/oeka3.jpeg`,
     comment:
       "八千代がキリ番纪念絵を描きました！<br />ついに…10000HIT达成です！感動！感謝！",
   },
@@ -85,7 +86,7 @@ const posts = ref([
     subject: "「懐かしの接続」",
     author: "访问者A",
     date: "2003/10/26 10:00",
-    imageSrc: "/bbs/oeka2.jpeg",
+    imageSrc: `${baseUrl}bbs/oeka2.jpeg`,
     comment:
       "久しぶりに接続しました。このBBSの雰囲気、映画公开当时を思い出します。",
   },
@@ -94,7 +95,7 @@ const posts = ref([
     subject: "「無題」",
     author: "八千代",
     date: "2003/10/13 18:30",
-    imageSrc: "/bbs/oeka1.jpg",
+    imageSrc: `${baseUrl}bbs/oeka1.jpg`,
     comment:
       "やっほ～！みんな元気？ヤチヨ久しぶりに筆を握ったよ！絵を描くのって楽しいね！๑(◕‿◕)๑ 楽しんで見てね～！",
   },

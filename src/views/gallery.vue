@@ -49,7 +49,7 @@ const { t } = useI18n()
 const galleryItems = ref([
   {
     link: 'https://www.bilibili.com/video/BV1mg6nBqExS/',
-    imageSrc: '${baseUrl}img/ゆるん.png',
+    imageSrc: `${baseUrl}img/ゆるん.png`,
     alt: 'ゆるん',
     artistName: 'ゆるん',
     artistLink: '#',
@@ -57,70 +57,70 @@ const galleryItems = ref([
   },
   {
     link: 'https://www.bilibili.com/video/BV1MC6zBZEML/',
-    imageSrc: '${baseUrl}img/失去梦想的奇奇-Traum奇1.jpg',
+    imageSrc: `${baseUrl}img/失去梦想的奇奇-Traum奇1.jpg`,
     artistName: '失去梦想的奇奇-Traum奇',
     artistLink: '#',
     date: '2003/1/31'
   },
   {
     link: 'https://www.bilibili.com/video/BV1MC6zBZEML/',
-    imageSrc: '${baseUrl}img/失去梦想的奇奇-Traum奇2.jpg',
+    imageSrc: `${baseUrl}img/失去梦想的奇奇-Traum奇2.jpg`,
     artistName: '失去梦想的奇奇-Traum奇',
     artistLink: '#',
     date: '2003/1/31'
   },
   {
     link: 'https://www.bilibili.com/video/BV1MC6zBZEML/',
-    imageSrc: '${baseUrl}img/失去梦想的奇奇-Traum奇3.jpg',
+    imageSrc: `${baseUrl}img/失去梦想的奇奇-Traum奇3.jpg`,
     artistName: '失去梦想的奇奇-Traum奇',
     artistLink: '#',
     date: '2003/1/31'
   },
   {
     link: 'https://www.bilibili.com/video/BV1HVz9BDELM/',
-    imageSrc: '${baseUrl}img/芸草冰2.jpg',
+    imageSrc: `${baseUrl}img/芸草冰2.jpg`,
     artistName: '芸草冰',
     artistLink: '#',
     date: '2003/01/28'
   },
   {
     link: 'https://www.bilibili.com/video/BV16q64BVE7E/',
-    imageSrc: '${baseUrl}img/M-Ronan.jpg',
+    imageSrc: `${baseUrl}img/M-Ronan.jpg`,
     artistName: 'M-Ronan',
     artistLink: '#',
     date: '2003/02/01'
   },
   {
     link: 'https://qijiujiujiujiu401.lofter.com/',
-    imageSrc: '${baseUrl}img/软毛咩姆酱.jpg',
+    imageSrc: `${baseUrl}img/软毛咩姆酱.jpg`,
     artistName: '软毛咩姆酱',
     artistLink: '#',
     date: '2003/01/28'
   },
   {
     link: 'https://www.bilibili.com/video/BV1HVz9BDELM/',
-    imageSrc: '${baseUrl}img/芸草冰1.jpg',
+    imageSrc: `${baseUrl}img/芸草冰1.jpg`,
     artistName: '芸草冰',
     artistLink: '#',
     date: '2003/01/28'
   },
   {
     link: 'https://www.bilibili.com/video/BV1HVz9BDELM/',
-    imageSrc: '${baseUrl}img/芸草冰3.jpg',
+    imageSrc: `${baseUrl}img/芸草冰3.jpg`,
     artistName: '芸草冰',
     artistLink: '#',
     date: '2003/01/28'
   },
   {
     link: 'https://milktea-tk.lofter.com/',
-    imageSrc: '${baseUrl}img/MILKTEA.jpg',
+    imageSrc: `${baseUrl}img/MILKTEA.jpg`,
     artistName: 'MILKTEA',
     artistLink: '#',
     date: '2003/01/30'
   },
   {
     link: 'https://www.bilibili.com/video/BV1MG6CBvEJB/',
-    imageSrc: '${baseUrl}img/夜间限定炸猪排盖饭.jpg',
+    imageSrc: `${baseUrl}img/夜间限定炸猪排盖饭.jpg`,
     artistName: '夜间限定炸猪排盖饭',
     artistLink: '#',
     date: '2003/01/31'
