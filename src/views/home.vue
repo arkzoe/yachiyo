@@ -176,9 +176,9 @@ const pageInfoList = ref([
 
 // ========== 4. 同盟链接数据 ==========
 const allianceList = ref([
-  { imageSrc: "`${baseUrl}images/omelet2.png`", alt: "蛋包饭", text: "★蛋包饭真爱同盟★" ,path: "/omelet-alliance"},
-  { imageSrc: "`${baseUrl}images/mentako.png`", alt: "面蛸", text: "★面蛸同盟★" ,path: "/mentako-alliance"},
-  { imageSrc: "`${baseUrl}images/moon.png`", alt: "★月球", text: "★想回月球联盟★" ,path: "/moon-alliance"},
+  { imageSrc: `${baseUrl}images/omelet2.png`, alt: "蛋包饭", text: "★蛋包饭真爱同盟★" ,path: "/omelet-alliance"},
+  { imageSrc: `${baseUrl}images/mentako.png`, alt: "面蛸", text: "★面蛸同盟★" ,path: "/mentako-alliance"},
+  { imageSrc: `${baseUrl}images/moon.png`, alt: "★月球", text: "★想回月球联盟★" ,path: "/moon-alliance"},
 ]);
 </script>
 
