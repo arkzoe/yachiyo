@@ -13,9 +13,9 @@
         </router-link>
         <span v-if="menu.appendText">{{ menu.appendText }}</span>
         <span class="new-tag" v-if="menu.showNewTag">New</span>
-        <a v-if="menu.extraLink" :href="menu.extraLink.href" :style="menu.extraLink.style">
+        <router-link v-if="menu.extraLink" :to="menu.extraLink.to" :style="menu.extraLink.style">
           {{ menu.extraLink.text }}
-        </a>
+        </router-link>
       </li>
     </ul>
 
@@ -100,7 +100,7 @@ const menuList = computed(() => [
     showNewTag: false,
     linkStyle: {},
     extraLink: {
-      href: '/etcha-rules',
+      to: '/etcha-rules',
       style: { fontSize: '13px', color: '#666' },
       text: t('common.etcharules')
     }
