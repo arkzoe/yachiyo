@@ -24,13 +24,13 @@ jobs:
       - name: 安装 pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 10.33.2  # 指定 pnpm 版本，保持与本地开发一致
+          version: 10  # 指定 pnpm 版本，保持与本地开发一致
 
       - name: 设置 Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '24.15.0' # 使用你项目中指定的 Node 版本
-          cache: 'pnpm'      # 关键：启用 pnpm 缓存，加速构建
+          node-version: '24'   # 使用 Node.js 24 最新版
+          cache: 'pnpm'        # 关键：启用 pnpm 缓存，加速构建
 
       - name: 安装依赖
         run: pnpm install --frozen-lockfile
@@ -41,7 +41,7 @@ jobs:
       - name: 上传构建产物
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist' # 这里替换成你的实际构建输出目录
+          path: './assets' # 这里替换成你的实际构建输出目录
 
   deploy:
     environment:
